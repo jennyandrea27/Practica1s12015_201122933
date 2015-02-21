@@ -10,7 +10,7 @@ package plants.vs.zombies;
  * @author Jenny
  */
 public class InicioPVZ extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form InicioPVZ
      */
@@ -27,37 +27,78 @@ public class InicioPVZ extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bPlantas = new javax.swing.JButton();
+        bZombies = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        bComenzar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jButton1.setText("Plantas");
+        getContentPane().setLayout(null);
 
-        jButton2.setText("Zombies");
+        bPlantas.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        bPlantas.setText("Plantas");
+        bPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPlantasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bPlantas);
+        bPlantas.setBounds(20, 230, 83, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jButton1)
-                .addGap(33, 33, 33)
-                .addComponent(jButton2)
-                .addContainerGap(144, Short.MAX_VALUE))
-        );
+        bZombies.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        bZombies.setText("Zombies");
+        bZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bZombiesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bZombies);
+        bZombies.setBounds(410, 230, 83, 25);
 
-        pack();
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel1.setText("Bienvenido, seleccione tipo de juego:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(150, 210, 250, 25);
+
+        bComenzar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        bComenzar.setText("COMENZAR JUEGO");
+        bComenzar.setEnabled(false);
+        bComenzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bComenzarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bComenzar);
+        bComenzar.setBounds(180, 260, 160, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PVZ.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 500, 500);
+
+        setSize(new java.awt.Dimension(515, 536));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPlantasActionPerformed
+        // TODO add your handling code here:
+        bPlantas.setEnabled(false);
+        Registro regP=new Registro("p");
+        regP.setVisible(true);
+        
+        
+    }//GEN-LAST:event_bPlantasActionPerformed
+
+    private void bZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZombiesActionPerformed
+        // TODO add your handling code here:
+        bZombies.setEnabled(false);
+        Registro regZ=new Registro("z");
+        regZ.setVisible(true);
+        System.out.println("zombies");
+    }//GEN-LAST:event_bZombiesActionPerformed
+
+    private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bComenzarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,7 +136,10 @@ public class InicioPVZ extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton bComenzar;
+    private javax.swing.JButton bPlantas;
+    private javax.swing.JButton bZombies;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
