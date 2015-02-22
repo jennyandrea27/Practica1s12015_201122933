@@ -5,7 +5,6 @@
  */
 
 package plants.vs.zombies;
-import Listas.*;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -82,6 +81,7 @@ public class Juego extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(null);
 
+        jpPlantas.setBackground(new java.awt.Color(168, 241, 134));
         jpPlantas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jpPlantasLayout = new javax.swing.GroupLayout(jpPlantas);
@@ -98,6 +98,7 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().add(jpPlantas);
         jpPlantas.setBounds(10, 10, 106, 600);
 
+        jpZombies.setBackground(new java.awt.Color(168, 241, 134));
         jpZombies.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jpZombiesLayout = new javax.swing.GroupLayout(jpZombies);
@@ -114,17 +115,8 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().add(jpZombies);
         jpZombies.setBounds(900, 10, 102, 600);
 
-        javax.swing.GroupLayout jpJuegoLayout = new javax.swing.GroupLayout(jpJuego);
-        jpJuego.setLayout(jpJuegoLayout);
-        jpJuegoLayout.setHorizontalGroup(
-            jpJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
-        jpJuegoLayout.setVerticalGroup(
-            jpJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
+        jpJuego.setBackground(new java.awt.Color(168, 241, 134));
+        jpJuego.setLayout(null);
         getContentPane().add(jpJuego);
         jpJuego.setBounds(130, 10, 750, 600);
 

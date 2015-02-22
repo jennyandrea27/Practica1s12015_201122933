@@ -42,7 +42,7 @@ public class Registro extends javax.swing.JFrame {
         tfExtra = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         bGuardar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -55,34 +55,41 @@ public class Registro extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(70, 110, 49, 17);
+        jLabel2.setBounds(70, 100, 49, 17);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 150, 52, 17);
+        jLabel3.setBounds(70, 140, 52, 17);
 
         tfNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         getContentPane().add(tfNombre);
-        tfNombre.setBounds(190, 100, 141, 23);
+        tfNombre.setBounds(190, 90, 140, 30);
 
         tfCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         getContentPane().add(tfCantidad);
-        tfCantidad.setBounds(190, 140, 141, 23);
+        tfCantidad.setBounds(190, 130, 141, 30);
 
         bExtra.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         bExtra.setText("Agregar Campo");
+        bExtra.setEnabled(false);
+        bExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bExtraActionPerformed(evt);
+            }
+        });
         getContentPane().add(bExtra);
-        bExtra.setBounds(194, 224, 121, 25);
+        bExtra.setBounds(150, 260, 121, 25);
 
         tfExtra.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfExtra.setEnabled(false);
         getContentPane().add(tfExtra);
-        tfExtra.setBounds(70, 225, 100, 23);
+        tfExtra.setBounds(30, 260, 100, 23);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Campo Extra:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(70, 196, 77, 17);
+        jLabel4.setBounds(30, 230, 77, 17);
 
         bGuardar.setText("GUARDAR");
         bGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,16 +98,17 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bGuardar);
-        bGuardar.setBounds(230, 270, 81, 23);
+        bGuardar.setBounds(150, 180, 81, 23);
 
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bSalir.setText("SALIR");
+        bSalir.setEnabled(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(320, 270, 61, 23);
+        getContentPane().add(bSalir);
+        bSalir.setBounds(330, 260, 61, 23);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel5);
@@ -110,10 +118,43 @@ public class Registro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         // TODO add your handling code here:
+        Iterator ij=InicioPVZ.Jugadores.iterator();
+        while(ij.hasNext())
+        {
+            System.out.println("lista jugador");
+                        
+            if(tipo.equals("p"))
+            {
+                System.out.println("Plantas");
+                LinkedList<LinkedList> tempplanta =(LinkedList<LinkedList>)ij.next();            
+                tempplanta =(LinkedList<LinkedList>)ij.next(); 
+                Iterator ip=tempplanta.iterator();
+                while(ip.hasNext())
+            {
+                System.out.println(ip.next().toString());    
+            }
+            }
+            
+            if(tipo.equals("z"))
+            {
+                System.out.println("Zombies");
+                LinkedList<LinkedList> tempzombie =(LinkedList<LinkedList>)ij.next();                            
+                Iterator iz=tempzombie.iterator();
+            while(iz.hasNext())
+            {
+                System.out.println(iz.next().toString());    
+            }
+            
+            }
+            
+        }
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        tfExtra.setEnabled(false);
+        bExtra.setEnabled(false);
+        bSalir.setEnabled(false); 
+    }//GEN-LAST:event_bSalirActionPerformed
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
@@ -129,41 +170,25 @@ public class Registro extends javax.swing.JFrame {
             jZombie.add(tfCantidad.getText());    
             InicioPVZ.Jugadores.add(jZombie);
         }
-        Iterator ij=InicioPVZ.Jugadores.iterator();
-        while(ij.hasNext())
-        {
-            System.out.println("lista jugador");
-                        
-            if(tipo.equals("p"))
-            {
-                System.out.println("Plantas");
-                LinkedList<LinkedList> tempplanta =(LinkedList<LinkedList>)ij.next();            
-                Iterator ip=tempplanta.iterator();
-                while(ip.hasNext())
-            {
-                System.out.println(ip.next().toString());    
-            }
-            }
-            
-            if(tipo.equals("z"))
-            {
-                System.out.println("Zombies");
-                LinkedList<LinkedList> tempzombie =(LinkedList<LinkedList>)ij.next();            
-                tempzombie =(LinkedList<LinkedList>)ij.next(); 
-                Iterator iz=tempzombie.iterator();
-            while(iz.hasNext())
-            {
-                System.out.println(iz.next().toString());    
-            }
-            
-            }
-            
-        }
         
-        
+        tfExtra.setEnabled(true);
+        bExtra.setEnabled(true);
+        bSalir.setEnabled(true);                   
         
         
     }//GEN-LAST:event_bGuardarActionPerformed
+
+    private void bExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExtraActionPerformed
+        // TODO add your handling code here:
+        if(tipo.equals("p"))
+        {
+            jPlanta.add(tfExtra.getText());
+        }
+        else if (tipo.equals("z"))
+        {
+            jZombie.add(tfExtra.getText());
+        }
+    }//GEN-LAST:event_bExtraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +230,7 @@ public class Registro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bExtra;
     private javax.swing.JButton bGuardar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
