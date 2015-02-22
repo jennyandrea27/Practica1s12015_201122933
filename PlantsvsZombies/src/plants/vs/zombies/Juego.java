@@ -92,11 +92,11 @@ public class Juego extends javax.swing.JFrame {
         );
         jpPlantasLayout.setVerticalGroup(
             jpPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 668, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpPlantas);
-        jpPlantas.setBounds(10, 10, 106, 670);
+        jpPlantas.setBounds(10, 10, 106, 600);
 
         jpZombies.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -108,11 +108,11 @@ public class Juego extends javax.swing.JFrame {
         );
         jpZombiesLayout.setVerticalGroup(
             jpZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 668, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpZombies);
-        jpZombies.setBounds(900, 10, 102, 670);
+        jpZombies.setBounds(900, 10, 102, 600);
 
         javax.swing.GroupLayout jpJuegoLayout = new javax.swing.GroupLayout(jpJuego);
         jpJuego.setLayout(jpJuegoLayout);
@@ -122,11 +122,11 @@ public class Juego extends javax.swing.JFrame {
         );
         jpJuegoLayout.setVerticalGroup(
             jpJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpJuego);
-        jpJuego.setBounds(130, 10, 750, 670);
+        jpJuego.setBounds(130, 10, 750, 600);
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
@@ -134,7 +134,7 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1420, 800);
 
-        setSize(new java.awt.Dimension(1042, 739));
+        setSize(new java.awt.Dimension(1042, 688));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

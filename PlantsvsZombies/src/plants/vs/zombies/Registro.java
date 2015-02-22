@@ -4,12 +4,18 @@
  * and open the template in the editor.
  */
 package plants.vs.zombies;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
 /**
  *
  * @author Jenny
  */
 public class Registro extends javax.swing.JFrame {
-    String tipo;
+    String tipo;    
+    LinkedList <String> jPlanta=new LinkedList<String>();
+    LinkedList <String> jZombie=new LinkedList<String>();
     /**
      * Creates new form SeleccionZ
      */
@@ -79,8 +85,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel4.setBounds(70, 196, 77, 17);
 
         bGuardar.setText("GUARDAR");
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bGuardar);
-        bGuardar.setBounds(240, 266, 81, 23);
+        bGuardar.setBounds(230, 270, 81, 23);
 
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +100,7 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(331, 266, 61, 23);
+        jButton1.setBounds(320, 270, 61, 23);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel5);
@@ -103,6 +114,56 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        // TODO add your handling code here:
+        if(tipo.equals("p"))
+        {
+            jPlanta.add(tfNombre.getText());    
+            jPlanta.add(tfCantidad.getText());    
+            InicioPVZ.Jugadores.add(jPlanta);
+        }
+        else
+        {
+            jZombie.add(tfNombre.getText());            
+            jZombie.add(tfCantidad.getText());    
+            InicioPVZ.Jugadores.add(jZombie);
+        }
+        Iterator ij=InicioPVZ.Jugadores.iterator();
+        while(ij.hasNext())
+        {
+            System.out.println("lista jugador");
+                        
+            if(tipo.equals("p"))
+            {
+                System.out.println("Plantas");
+                LinkedList<LinkedList> tempplanta =(LinkedList<LinkedList>)ij.next();            
+                Iterator ip=tempplanta.iterator();
+                while(ip.hasNext())
+            {
+                System.out.println(ip.next().toString());    
+            }
+            }
+            
+            if(tipo.equals("z"))
+            {
+                System.out.println("Zombies");
+                LinkedList<LinkedList> tempzombie =(LinkedList<LinkedList>)ij.next();            
+                tempzombie =(LinkedList<LinkedList>)ij.next(); 
+                Iterator iz=tempzombie.iterator();
+            while(iz.hasNext())
+            {
+                System.out.println(iz.next().toString());    
+            }
+            
+            }
+            
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_bGuardarActionPerformed
 
     /**
      * @param args the command line arguments

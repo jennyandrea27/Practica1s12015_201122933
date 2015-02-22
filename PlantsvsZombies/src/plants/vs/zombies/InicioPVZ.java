@@ -1,5 +1,6 @@
 package plants.vs.zombies;
 
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -8,11 +9,13 @@ import javax.swing.JOptionPane;
  */
 
 public class InicioPVZ extends javax.swing.JFrame {
+    public static LinkedList <LinkedList> Jugadores=new LinkedList<LinkedList>();
     /**
      * Creates new form InicioPVZ
      */
     public InicioPVZ() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -113,7 +116,7 @@ public class InicioPVZ extends javax.swing.JFrame {
         // TODO add your handling code here:                
         int x=Integer.parseInt(tbX.getText());
         int y=Integer.parseInt(tbY.getText());
-        if(0<x && x<=10 && 0<y && y<=9){
+        if(0<x && x<=10 && 0<y && y<=8){
             Juego juego=new Juego(x,y);
             juego.setVisible(true);
         }
