@@ -1,5 +1,6 @@
 package plants.vs.zombies;
 
+import Listas.Personaje;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -10,6 +11,8 @@ import javax.swing.JOptionPane;
 
 public class InicioPVZ extends javax.swing.JFrame {
     public static LinkedList <LinkedList> Jugadores=new LinkedList<LinkedList>();
+    public static LinkedList <Personaje> CPlantas=new LinkedList<Personaje>();
+    public static LinkedList <Personaje> CZombie=new LinkedList<Personaje>();
     /**
      * Creates new form InicioPVZ
      */
@@ -60,6 +63,7 @@ public class InicioPVZ extends javax.swing.JFrame {
 
         bComenzar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         bComenzar.setText("COMENZAR JUEGO");
+        bComenzar.setEnabled(false);
         bComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bComenzarActionPerformed(evt);
@@ -74,12 +78,15 @@ public class InicioPVZ extends javax.swing.JFrame {
         jLabel3.setBounds(150, 270, 210, 17);
 
         tbX.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tbX.setText("2");
+        tbX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbXActionPerformed(evt);
+            }
+        });
         getContentPane().add(tbX);
         tbX.setBounds(160, 310, 60, 30);
 
         tbY.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tbY.setText("2");
         getContentPane().add(tbY);
         tbY.setBounds(290, 310, 60, 30);
 
@@ -114,6 +121,7 @@ public class InicioPVZ extends javax.swing.JFrame {
 
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         // TODO add your handling code here:                
+        
         int x=Integer.parseInt(tbX.getText());
         int y=Integer.parseInt(tbY.getText());
         if(0<x && x<=10 && 0<y && y<=8){
@@ -125,6 +133,10 @@ public class InicioPVZ extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_bComenzarActionPerformed
+
+    private void tbXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbXActionPerformed
 
     /**
      * @param args the command line arguments
