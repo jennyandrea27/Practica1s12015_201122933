@@ -5,11 +5,13 @@
  */
 package Listas;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Jenny
  */
-public class Personaje {
+public class Personaje extends JLabel implements Runnable{
     String imagen;
     String nombre;
     int pataque;
@@ -90,5 +92,11 @@ public class Personaje {
 
     public void setTipopersonaje(String tipopersonaje) {
         this.tipopersonaje = tipopersonaje;
+    }
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }

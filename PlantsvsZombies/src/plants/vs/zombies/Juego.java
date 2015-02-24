@@ -5,9 +5,14 @@
  */
 
 package plants.vs.zombies;
+import Listas.Personaje;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Stack;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import static plants.vs.zombies.InicioPVZ.*;
 
 /**
  *
@@ -16,6 +21,9 @@ import javax.swing.JLabel;
 public class Juego extends javax.swing.JFrame {
     int x;
     int y;   
+    public static LinkedList<Personaje> ColaP=new LinkedList<Personaje>();
+    public static Stack<Personaje> PilaZ=new Stack<Personaje>();
+    
     /** Creates new form Juego */
     public Juego(int x,int y) {   
         initComponents();
@@ -23,6 +31,7 @@ public class Juego extends javax.swing.JFrame {
         this.y=y;
         int posx=0;
         int posy=0;
+        //Graficar campo de juego
         URL direccion=null;
         ImageIcon icono=null;
         for(int a=1;a<=x;a++){
@@ -61,7 +70,21 @@ public class Juego extends javax.swing.JFrame {
             posy = 0;
             posx+=75;
         }
+        //Recorrer lista Plantas
+        int xp=0;
+        int yp=0;
+        Iterator i=CPlantas.iterator();
+        while(i.hasNext())
+        {
+            Personaje plantatemp=(Personaje) i.next();
+            JLabel lp=new JLabel(plantatemp.getImagen());
+            lp.setBounds(xp, yp, 75, 75);
+            jpPlantas.add(lp);
+            jpPlantas.repaint();
+            xp+=80;
+        }
         
+        //Recorrer lista zombies
     }
 
     /** This method is called from within the constructor to
@@ -83,37 +106,15 @@ public class Juego extends javax.swing.JFrame {
 
         jpPlantas.setBackground(new java.awt.Color(168, 241, 134));
         jpPlantas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jpPlantasLayout = new javax.swing.GroupLayout(jpPlantas);
-        jpPlantas.setLayout(jpPlantasLayout);
-        jpPlantasLayout.setHorizontalGroup(
-            jpPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 104, Short.MAX_VALUE)
-        );
-        jpPlantasLayout.setVerticalGroup(
-            jpPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
-        );
-
+        jpPlantas.setLayout(null);
         getContentPane().add(jpPlantas);
-        jpPlantas.setBounds(10, 10, 106, 600);
+        jpPlantas.setBounds(10, 10, 110, 600);
 
         jpZombies.setBackground(new java.awt.Color(168, 241, 134));
         jpZombies.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jpZombiesLayout = new javax.swing.GroupLayout(jpZombies);
-        jpZombies.setLayout(jpZombiesLayout);
-        jpZombiesLayout.setHorizontalGroup(
-            jpZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jpZombiesLayout.setVerticalGroup(
-            jpZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
-        );
-
+        jpZombies.setLayout(null);
         getContentPane().add(jpZombies);
-        jpZombies.setBounds(900, 10, 102, 600);
+        jpZombies.setBounds(900, 10, 110, 600);
 
         jpJuego.setBackground(new java.awt.Color(168, 241, 134));
         jpJuego.setLayout(null);
@@ -169,8 +170,8 @@ public class Juego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpJuego;
-    private javax.swing.JPanel jpPlantas;
-    private javax.swing.JPanel jpZombies;
+    public static javax.swing.JPanel jpPlantas;
+    public static javax.swing.JPanel jpZombies;
     // End of variables declaration//GEN-END:variables
 
 }

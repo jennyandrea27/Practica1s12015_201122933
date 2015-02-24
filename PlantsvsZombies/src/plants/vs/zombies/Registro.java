@@ -128,8 +128,11 @@ public class Registro extends javax.swing.JFrame {
             if(tipo.equals("p"))
             {
                 System.out.println("Plantas");
-                LinkedList<LinkedList> tempplanta =(LinkedList<LinkedList>)ij.next();            
-                tempplanta =(LinkedList<LinkedList>)ij.next(); 
+                LinkedList<LinkedList> tempplanta =(LinkedList<LinkedList>)ij.next();   
+                if(ij.hasNext())
+                {
+                    tempplanta =(LinkedList<LinkedList>)ij.next();     
+                }                
                 Iterator ip=tempplanta.iterator();
                 while(ip.hasNext())
             {
@@ -140,7 +143,11 @@ public class Registro extends javax.swing.JFrame {
             if(tipo.equals("z"))
             {
                 System.out.println("Zombies");
-                LinkedList<LinkedList> tempzombie =(LinkedList<LinkedList>)ij.next();                            
+                LinkedList<LinkedList> tempzombie =(LinkedList<LinkedList>)ij.next();  
+                if(ij.hasNext())
+                {
+                    tempzombie =(LinkedList<LinkedList>)ij.next();     
+                }
                 Iterator iz=tempzombie.iterator();
             while(iz.hasNext())
             {

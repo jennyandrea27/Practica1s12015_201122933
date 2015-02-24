@@ -5,17 +5,40 @@
  */
 package plants.vs.zombies;
 
+import Listas.Personaje;
+import java.net.URL;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Jenny
  */
 public class CatalogoP extends javax.swing.JFrame {
-
+    int posx=0;
+    int posy=0;
+    
+    void CrearLabel(String texto,JPanel panel,int x, int y)
+    {
+        JLabel l=new JLabel();
+        l.setText(texto);
+        l.setBounds(x, y, 75, 75);
+        panel.add(l);
+    }
+    
+//    URL direccion=null;
+//    ImageIcon icono=null;
+        
     /**
-     * Creates new form CatalogoP
+     * Creates new form CatalogoZ
      */
     public CatalogoP() {
-        initComponents();
+        initComponents();  
+        
+        
     }
 
     /**
@@ -27,21 +50,194 @@ public class CatalogoP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        tfImagen = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tfAtaque = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        tfDefensa = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        tfTipoAtaque = new javax.swing.JTextField();
+        bGuardar = new javax.swing.JButton();
+        jpCatalogo = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(null);
 
-        pack();
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("TIPO");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel5.setPreferredSize(new java.awt.Dimension(75, 75));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(440, 10, 50, 57);
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("DEFENSA");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel4.setPreferredSize(new java.awt.Dimension(75, 75));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(350, 10, 70, 57);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("ATAQUE");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel3.setPreferredSize(new java.awt.Dimension(75, 75));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(260, 10, 70, 57);
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("NOMBRE");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel2.setPreferredSize(new java.awt.Dimension(75, 75));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(160, 10, 70, 57);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("IMAGEN");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setPreferredSize(new java.awt.Dimension(75, 75));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 10, 70, 57);
+
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setText("Abrir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(710, 90, 61, 25);
+
+        bSalir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        bSalir.setText("SALIR");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(700, 432, 75, 25);
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel6.setText("Cargar Imagen:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(596, 85, 71, 14);
+
+        tfImagen.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        getContentPane().add(tfImagen);
+        tfImagen.setBounds(596, 115, 97, 20);
+
+        jLabel7.setText("Nombre:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(596, 146, 41, 14);
+
+        tfNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(596, 171, 97, 20);
+
+        jLabel8.setText("Ataque:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(596, 202, 39, 14);
+
+        tfAtaque.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        getContentPane().add(tfAtaque);
+        tfAtaque.setBounds(596, 227, 97, 20);
+
+        jLabel9.setText("Defensa:");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(596, 258, 44, 14);
+
+        tfDefensa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        getContentPane().add(tfDefensa);
+        tfDefensa.setBounds(596, 278, 97, 20);
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setText("Tipo de Ataque:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(596, 309, 79, 14);
+
+        tfTipoAtaque.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        getContentPane().add(tfTipoAtaque);
+        tfTipoAtaque.setBounds(596, 329, 97, 20);
+
+        bGuardar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        bGuardar.setText("Guardar");
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bGuardar);
+        bGuardar.setBounds(642, 355, 79, 25);
+
+        jpCatalogo.setBackground(new java.awt.Color(168, 241, 134));
+        jpCatalogo.setLayout(null);
+        getContentPane().add(jpCatalogo);
+        jpCatalogo.setBounds(10, 70, 560, 360);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoverde.jpg"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(0, 0, 790, 470);
+
+        setSize(new java.awt.Dimension(805, 508));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser archivo = new JFileChooser("C:\\Users\\Jenny\\Documents\\GitHub\\Practica1s12015_201122933\\PlantsvsZombies\\src\\Imagenes\\Plantas");        
+        archivo.showOpenDialog(null);
+        tfImagen.setText(archivo.getSelectedFile().toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        // TODO add your handling code here:         
+        Personaje temp=new Personaje(tfImagen.getText(),tfNombre.getText(),Integer.parseInt(tfAtaque.getText()),Integer.parseInt(tfDefensa.getText()),tfTipoAtaque.getText(),"p");
+        InicioPVZ.CPlantas.add(temp);        
+        ImageIcon icono=new ImageIcon(temp.getImagen());      
+        JLabel l1=new JLabel(icono);
+        l1.setBounds(posx, posy , 75, 75);
+        jpCatalogo.add(l1);
+        posx+=175;
+        posy+=10;
+        CrearLabel(temp.getNombre(), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(Integer.toString(temp.getPataque()), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(Integer.toString(temp.getPdefensa()), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(temp.getTipoataque(), jpCatalogo, posx, posy);
+        posx=0;
+        posy+=80;
+        jpCatalogo.repaint();
+        
+        
+    }//GEN-LAST:event_bGuardarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        // TODO add your handling code here:
+        Iterator ip=InicioPVZ.CPlantas.iterator();
+        while(ip.hasNext())
+        {
+            Personaje p = (Personaje) ip.next();
+            System.out.println(p.getImagen());
+        }
+        this.setVisible(false);
+        CatalogoZ catalogoz=new CatalogoZ();
+        catalogoz.setVisible(true);   
+        
+        
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,6 +265,7 @@ public class CatalogoP extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CatalogoP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +276,25 @@ public class CatalogoP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bGuardar;
+    private javax.swing.JButton bSalir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jpCatalogo;
+    private javax.swing.JTextField tfAtaque;
+    private javax.swing.JTextField tfDefensa;
+    private javax.swing.JTextField tfImagen;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfTipoAtaque;
     // End of variables declaration//GEN-END:variables
 }

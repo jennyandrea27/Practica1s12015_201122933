@@ -13,6 +13,7 @@ public class InicioPVZ extends javax.swing.JFrame {
     public static LinkedList <LinkedList> Jugadores=new LinkedList<LinkedList>();
     public static LinkedList <Personaje> CPlantas=new LinkedList<Personaje>();
     public static LinkedList <Personaje> CZombie=new LinkedList<Personaje>();
+    public static Juego juego=null;
     /**
      * Creates new form InicioPVZ
      */
@@ -78,6 +79,7 @@ public class InicioPVZ extends javax.swing.JFrame {
         jLabel3.setBounds(150, 270, 210, 17);
 
         tbX.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tbX.setEnabled(false);
         tbX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbXActionPerformed(evt);
@@ -87,6 +89,7 @@ public class InicioPVZ extends javax.swing.JFrame {
         tbX.setBounds(160, 310, 60, 30);
 
         tbY.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tbY.setEnabled(false);
         getContentPane().add(tbY);
         tbY.setBounds(290, 310, 60, 30);
 
@@ -104,6 +107,8 @@ public class InicioPVZ extends javax.swing.JFrame {
         Registro regP=new Registro("p");
         regP.setVisible(true);
         if(!bZombies.isEnabled() && !bPlantas.isEnabled()){
+            tbX.setEnabled(true);
+            tbY.setEnabled(true);
             bComenzar.setEnabled(true);
         }      
         
@@ -115,6 +120,8 @@ public class InicioPVZ extends javax.swing.JFrame {
         Registro regZ=new Registro("z");
         regZ.setVisible(true);
         if(!bZombies.isEnabled() && !bPlantas.isEnabled()){
+            tbX.setEnabled(true);
+            tbY.setEnabled(true);
             bComenzar.setEnabled(true);
         }
     }//GEN-LAST:event_bZombiesActionPerformed
@@ -125,11 +132,12 @@ public class InicioPVZ extends javax.swing.JFrame {
         int x=Integer.parseInt(tbX.getText());
         int y=Integer.parseInt(tbY.getText());
         if(0<x && x<=10 && 0<y && y<=8){
-            Juego juego=new Juego(x,y);
-            juego.setVisible(true);
+            juego=new Juego(x,y);            
+            CatalogoP catalogop=new CatalogoP();
+            catalogop.setVisible(true);
         }
         else {
-            JOptionPane.showMessageDialog(null, "Las dimensiones no pueden exceder de 10 x 9");
+            JOptionPane.showMessageDialog(null, "Las dimensiones no pueden exceder de 10 x 8");
         }
         
     }//GEN-LAST:event_bComenzarActionPerformed

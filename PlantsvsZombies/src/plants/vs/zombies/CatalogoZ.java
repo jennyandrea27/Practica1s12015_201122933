@@ -11,6 +11,7 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,6 +20,15 @@ import javax.swing.JLabel;
 public class CatalogoZ extends javax.swing.JFrame {
     int posx=0;
     int posy=0;
+    
+    void CrearLabel(String texto,JPanel panel,int x, int y)
+    {
+        JLabel l=new JLabel();
+        l.setText(texto);
+        l.setBounds(x, y, 75, 75);
+        panel.add(l);
+    }
+    
 //    URL direccion=null;
 //    ImageIcon icono=null;
         
@@ -68,21 +78,21 @@ public class CatalogoZ extends javax.swing.JFrame {
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel5.setPreferredSize(new java.awt.Dimension(75, 75));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 10, 50, 57);
+        jLabel5.setBounds(440, 10, 50, 57);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("DEFENSA");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel4.setPreferredSize(new java.awt.Dimension(75, 75));
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(380, 10, 70, 57);
+        jLabel4.setBounds(350, 10, 70, 57);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("ATAQUE");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel3.setPreferredSize(new java.awt.Dimension(75, 75));
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(280, 10, 70, 57);
+        jLabel3.setBounds(260, 10, 70, 57);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("NOMBRE");
@@ -110,6 +120,11 @@ public class CatalogoZ extends javax.swing.JFrame {
 
         bSalir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         bSalir.setText("SALIR");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
         getContentPane().add(bSalir);
         bSalir.setBounds(700, 432, 75, 25);
 
@@ -180,29 +195,76 @@ public class CatalogoZ extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFileChooser archivo = new JFileChooser("C:\\Users\\Jenny\\Documents\\GitHub\\Practica1s12015_201122933\\PlantsvsZombies\\src\\Imagenes");        
+        JFileChooser archivo = new JFileChooser("C:\\Users\\Jenny\\Documents\\GitHub\\Practica1s12015_201122933\\PlantsvsZombies\\src\\Imagenes\\Zombies");        
         archivo.showOpenDialog(null);
         tfImagen.setText(archivo.getSelectedFile().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
-        // TODO add your handling code here:             
-       //URL direccion=getClass().getResource("/Imagenes/gverde.png");
-       //ImageIcon icono=new ImageIcon(direccion); 
-//     JLabel temp=new JLabel(icono);
-//       temp.setBounds(50, 50 , 75, 75);       
-//       temp.setText("pueba");
-//       jpCatalogo.add(temp);
+        // TODO add your handling code here:         
         Personaje temp=new Personaje(tfImagen.getText(),tfNombre.getText(),Integer.parseInt(tfAtaque.getText()),Integer.parseInt(tfDefensa.getText()),tfTipoAtaque.getText(),"z");
-        InicioPVZ.CZombie.add(temp);
+        InicioPVZ.CZombie.add(temp);        
+        ImageIcon icono=new ImageIcon(temp.getImagen());      
+        JLabel l1=new JLabel(icono);
+        l1.setBounds(posx, posy , 75, 75);
+        jpCatalogo.add(l1);
+        posx+=175;
+        posy+=10;
+        CrearLabel(temp.getNombre(), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(Integer.toString(temp.getPataque()), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(Integer.toString(temp.getPdefensa()), jpCatalogo, posx, posy);
+        posx+=90;
+        CrearLabel(temp.getTipoataque(), jpCatalogo, posx, posy);
+        posx=0;
+        posy+=80;
+        jpCatalogo.repaint();
+        
+        
+    }//GEN-LAST:event_bGuardarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        // TODO add your handling code here:
         Iterator iz=InicioPVZ.CZombie.iterator();
         while(iz.hasNext())
         {
-            Personaje p = (Personaje) iz.next();
-            System.out.println(p.getImagen());
+            Personaje z = (Personaje) iz.next();
+            System.out.println(z.getImagen());
+            
         }
+        this.setVisible(false);
+        InicioPVZ.juego.setVisible(true);      
+        int tamp=InicioPVZ.CPlantas.size();            
+        int tamz=InicioPVZ.CZombie.size();
         
-    }//GEN-LAST:event_bGuardarActionPerformed
+        int y=0;
+                
+        for(int i=0;i<5;i++)    
+        {          
+        //Agregar a Cola Plantas
+            int posp=(int)(Math.random()*100)%tamp;            
+            Juego.ColaP.add(InicioPVZ.CPlantas.get(posp));
+            Personaje plantatemp=InicioPVZ.CPlantas.get(posp);
+            ImageIcon iconop=new ImageIcon(plantatemp.getImagen());      
+            JLabel lp=new JLabel(iconop);
+            lp.setBounds(0, y, 75, 75);
+            Juego.jpPlantas.add(lp);
+            Juego.jpPlantas.repaint();
+            
+        //Agregar a Pila zombies                           
+            int posz=(int)(Math.random()*100)%tamz;            
+            Juego.PilaZ.add(InicioPVZ.CZombie.get(posz));
+            Personaje zombietemp=InicioPVZ.CZombie.get(posz);
+            ImageIcon iconoz=new ImageIcon(zombietemp.getImagen());      
+            JLabel lz=new JLabel(iconoz);
+            lz.setBounds(0, y, 75, 75);
+            Juego.jpZombies.add(lz);
+            Juego.jpZombies.repaint();
+            y+=80;
+        }
+                                 
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
