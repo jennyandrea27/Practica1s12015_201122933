@@ -254,16 +254,18 @@ public class CatalogoZ extends javax.swing.JFrame {
             
         //Agregar a Pila zombies                           
             int posz=(int)(Math.random()*100)%tamz;            
-            Juego.PilaZ.add(InicioPVZ.CZombie.get(posz));
+            Juego.PilaZ.push(InicioPVZ.CZombie.get(posz));
             Personaje zombietemp=InicioPVZ.CZombie.get(posz);
             ImageIcon iconoz=new ImageIcon(zombietemp.getImagen());      
             JLabel lz=new JLabel(iconoz);
             lz.setBounds(0, y, 75, 75);
             Juego.jpZombies.add(lz);
-            Juego.jpZombies.repaint();
+            Juego.jpZombies.repaint();           
             y+=80;
-        }
-                                 
+        }     
+       Thread t=new Thread(InicioPVZ.juego);
+       t.start();
+        
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
