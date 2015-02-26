@@ -11,7 +11,9 @@ import javax.swing.JLabel;
  *
  * @author Jenny
  */
-public class Personaje extends JLabel implements Runnable{
+public class Personaje extends JLabel implements Cloneable{
+    public Personaje siguiente;
+    public Personaje anterior;
     String imagen;
     String nombre;
     int pataque;
@@ -28,6 +30,8 @@ public class Personaje extends JLabel implements Runnable{
         this.pdefensa = pdefensa;
         this.tipoataque = tipoataque;
         this.tipopersonaje = tipopersonaje;
+        this.siguiente=null;
+        this.anterior=null;
     }
 
     public String getImagen() {
@@ -94,9 +98,13 @@ public class Personaje extends JLabel implements Runnable{
         this.tipopersonaje = tipopersonaje;
     }
 
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+    public Object Clone(){
+        Object objeto=null;
+        try{
+            objeto=super.clone();
+        }catch(CloneNotSupportedException e){
+            System.out.println("no se puede ducplicar");
+        }
+        return objeto;
     }
 }

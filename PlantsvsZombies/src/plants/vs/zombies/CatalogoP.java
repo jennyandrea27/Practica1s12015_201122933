@@ -226,12 +226,12 @@ public class CatalogoP extends javax.swing.JFrame {
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         // TODO add your handling code here:
-        Iterator ip=InicioPVZ.CPlantas.iterator();
-        while(ip.hasNext())
-        {
-            Personaje p = (Personaje) ip.next();
-            System.out.println(p.getImagen());
-        }
+//        Iterator ip=InicioPVZ.CPlantas.iterator();
+//        while(ip.hasNext())
+//        {
+//            Personaje p = (Personaje) ip.next();
+//            System.out.println(p.getImagen());
+//        }
         this.setVisible(false);
         CatalogoZ catalogoz=new CatalogoZ();
         catalogoz.setVisible(true);   

@@ -76,18 +76,18 @@ public class Juego extends javax.swing.JFrame implements Runnable{
             posx+=75;
         }
         //Recorrer lista Plantas
-        int xp=0;
-        int yp=0;
-        Iterator i=CPlantas.iterator();
-        while(i.hasNext())
-        {
-            Personaje plantatemp=(Personaje) i.next();
-            JLabel lp=new JLabel(plantatemp.getImagen());
-            lp.setBounds(xp, yp, 75, 75);
-            jpPlantas.add(lp);
-            jpPlantas.repaint();
-            xp+=80;
-        }
+//        int xp=0;
+//        int yp=0;
+//        Iterator i=CPlantas.iterator();
+//        while(i.hasNext())
+//        {
+//            Personaje plantatemp=(Personaje) i.next();
+//            JLabel lp=new JLabel(plantatemp.getImagen());
+//            lp.setBounds(xp, yp, 75, 75);
+//            jpPlantas.add(lp);
+//            jpPlantas.repaint();
+//            xp+=80;
+//        }
         
         //Recorrer lista zombies
     }
@@ -110,21 +110,19 @@ public class Juego extends javax.swing.JFrame implements Runnable{
         getContentPane().setLayout(null);
 
         jpPlantas.setBackground(new java.awt.Color(168, 241, 134));
-        jpPlantas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpPlantas.setLayout(null);
         getContentPane().add(jpPlantas);
-        jpPlantas.setBounds(10, 10, 110, 600);
+        jpPlantas.setBounds(10, 10, 110, 640);
 
         jpZombies.setBackground(new java.awt.Color(168, 241, 134));
-        jpZombies.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpZombies.setLayout(null);
         getContentPane().add(jpZombies);
-        jpZombies.setBounds(900, 10, 110, 600);
+        jpZombies.setBounds(900, 10, 110, 640);
 
         jpJuego.setBackground(new java.awt.Color(168, 241, 134));
         jpJuego.setLayout(null);
         getContentPane().add(jpJuego);
-        jpJuego.setBounds(130, 10, 750, 600);
+        jpJuego.setBounds(130, 30, 750, 600);
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
@@ -132,7 +130,7 @@ public class Juego extends javax.swing.JFrame implements Runnable{
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1420, 800);
 
-        setSize(new java.awt.Dimension(1042, 688));
+        setSize(new java.awt.Dimension(1064, 707));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -197,13 +195,13 @@ public class Juego extends javax.swing.JFrame implements Runnable{
             jpPlantas.add(lp);  
             posy+=80;
         }
-        jpPlantas.repaint();   
+        jpPlantas.repaint();
     }
     void HiloPila(JPanel jpanel)
     {
         int tamz=InicioPVZ.CZombie.size();            
         int posz=(int)(Math.random()*100)%tamz;            
-        ColaP.add(InicioPVZ.CZombie.get(posz));
+        PilaZ.add(InicioPVZ.CZombie.get(posz));
         jpZombies.removeAll();
         int posy=0;
             
@@ -223,24 +221,33 @@ public class Juego extends javax.swing.JFrame implements Runnable{
     @Override
     public void run() {
                               
+        try
+            {    
+                hilo.sleep(5000);
+
+            }
+        catch(InterruptedException ex)
+        {
+
+        }
             //Insercion plantas                      
         int cantidadp=Integer.parseInt(InicioPVZ.Jugadores.get(0).get(1).toString());
-        
+
         while(contplantas<cantidadp)
         {
             HiloCola(jpPlantas);
             HiloPila(jpZombies);
+
+            contplantas+=1; 
             try
             {    
                 hilo.sleep(5000);
-
             }
             catch(InterruptedException ex)
             {
 
             }
-            contplantas+=1;
-        } 
+        }
         
     }
 }

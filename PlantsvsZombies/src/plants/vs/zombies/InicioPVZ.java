@@ -1,5 +1,6 @@
 package plants.vs.zombies;
 
+import Listas.ListaPersonaje;
 import Listas.Personaje;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -11,8 +12,8 @@ import javax.swing.JOptionPane;
 
 public class InicioPVZ extends javax.swing.JFrame {
     public static LinkedList <LinkedList> Jugadores=new LinkedList<LinkedList>();
-    public static LinkedList <Personaje> CPlantas=new LinkedList<Personaje>();
-    public static LinkedList <Personaje> CZombie=new LinkedList<Personaje>();
+    public static ListaPersonaje CPlantas=new ListaPersonaje();
+    public static ListaPersonaje CZombie=new ListaPersonaje();
     public static Juego juego=null;
     /**
      * Creates new form InicioPVZ

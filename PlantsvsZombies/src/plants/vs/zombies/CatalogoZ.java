@@ -226,13 +226,13 @@ public class CatalogoZ extends javax.swing.JFrame {
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         // TODO add your handling code here:
-        Iterator iz=InicioPVZ.CZombie.iterator();
-        while(iz.hasNext())
-        {
-            Personaje z = (Personaje) iz.next();
-            System.out.println(z.getImagen());
-            
-        }
+//        Iterator iz=InicioPVZ.CZombie.iterator();
+//        while(iz.hasNext())
+//        {
+//            Personaje z = (Personaje) iz.next();
+//            System.out.println(z.getImagen());
+//            
+//        }
         this.setVisible(false);
         InicioPVZ.juego.setVisible(true);      
         int tamp=InicioPVZ.CPlantas.size();            
