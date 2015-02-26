@@ -150,8 +150,10 @@ public class Juego extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code hereihgiugiugiugi:
         InicioPVZ.CPlantas.Dot();
+        //;alsjfldsk;jf;lskadjflkjdsflkj
+        
         InicioPVZ.Escribir(InicioPVZ.CPlantas.Dot(), "C:\\Users\\Jenny\\Desktop\\CPlantas.txt");
         String dotPath = "C:\\Program Files\\Graphviz2.38\\bin\\dot.exe -Tjpg C:\\Users\\Jenny\\Desktop\\CPlantas.txt -o C:\\Users\\Jenny\\Desktop\\ImagenCPlantas.jpg";
     try {
