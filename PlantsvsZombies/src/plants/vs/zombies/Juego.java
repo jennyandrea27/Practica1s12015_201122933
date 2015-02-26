@@ -104,6 +104,8 @@ public class Juego extends javax.swing.JFrame implements Runnable{
         jpPlantas = new javax.swing.JPanel();
         jpZombies = new javax.swing.JPanel();
         jpJuego = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 255));
@@ -124,15 +126,50 @@ public class Juego extends javax.swing.JFrame implements Runnable{
         getContentPane().add(jpJuego);
         jpJuego.setBounds(130, 30, 750, 600);
 
+        jButton1.setText("Catalogo Plantas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(20, 660, 113, 23);
+
+        jButton2.setText("Catalogo Zombies");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(890, 660, 130, 23);
+
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoverde.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1420, 800);
 
-        setSize(new java.awt.Dimension(1064, 707));
+        setSize(new java.awt.Dimension(1067, 739));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        InicioPVZ.CPlantas.Dot();
+        InicioPVZ.Escribir(InicioPVZ.CPlantas.Dot(), "C:\\Users\\Jenny\\Desktop\\CPlantas.txt");
+        String dotPath = "C:\\Program Files\\Graphviz2.38\\bin\\dot.exe -Tjpg C:\\Users\\Jenny\\Desktop\\CPlantas.txt -o C:\\Users\\Jenny\\Desktop\\ImagenCPlantas.jpg";
+    try {
+            Runtime rt = Runtime.getRuntime();
+            rt.exec( dotPath );
+        } catch (Exception ex) 
+        {
+        ex.printStackTrace();
+        }  finally {
+        }     
+        
+        URL direccion=(getClass().getResource("C:\\Users\\Jenny\\Desktop\\ImagenCPlantas.jpg"));      
+        String html="<html><head><Title><Catalogo Plantas></title></head><body><center>";
+        html+="<img src=\""+direccion+"\">";
+        html+="</center></body></html>";
+        InicioPVZ.Escribir(html,"C:\\Users\\Jenny\\Desktop\\HTMLCPlantas.html");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +208,8 @@ public class Juego extends javax.swing.JFrame implements Runnable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpJuego;
     public static javax.swing.JPanel jpPlantas;

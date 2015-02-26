@@ -2,7 +2,14 @@ package plants.vs.zombies;
 
 import Listas.ListaPersonaje;
 import Listas.Personaje;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +22,26 @@ public class InicioPVZ extends javax.swing.JFrame {
     public static ListaPersonaje CPlantas=new ListaPersonaje();
     public static ListaPersonaje CZombie=new ListaPersonaje();
     public static Juego juego=null;
+    
+    public static void Escribir(String cadena, String archivo){
+            FileWriter fichero = null;
+            PrintWriter pw = null;
+                try {
+                    fichero = new FileWriter(archivo);
+                    pw = new PrintWriter(fichero);
+                    
+                    pw.println(cadena);
+
+                    pw.close();
+                    fichero.close();
+                    
+                } catch (IOException ex) {
+                    
+                }                               
+        }                     
+        
+    
+     
     /**
      * Creates new form InicioPVZ
      */
