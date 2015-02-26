@@ -167,6 +167,7 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(tipo.equals("p"))
         {
+            //jPlanta jugador planta           
             jPlanta.add(tfNombre.getText());    
             jPlanta.add(tfCantidad.getText());    
             InicioPVZ.Jugadores.add(jPlanta);

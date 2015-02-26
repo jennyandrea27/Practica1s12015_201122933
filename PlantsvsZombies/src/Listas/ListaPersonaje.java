@@ -64,5 +64,32 @@ public int size(){
     }
     return cont;
 }
+public String Dot(){
+    String cadena="digraph G \n { \n ";
+    int cont=1;
+    if(nodoinicio==null){
+        return "";
+    }
+    Personaje aux=nodoinicio;
+    //declaracion de nodos
+    while(aux.siguiente!=null){
+        cadena+="nodo"+cont+"[label=\""+aux.getNombre()+"\"];\n";
+        cont++;
+        aux=aux.siguiente;
+    }
+    if(aux.siguiente==null){
+        cadena+="nodo"+cont+"[label=\""+aux.getNombre()+"\"];\n";
+        cont++;
+    }
+    aux=nodoinicio;
+    cont=1;
+    while(aux.siguiente!=null){
+        cadena+="nodo"+cont+"->"+"nodo"+(cont+1)+";\n";
+        cont++;
+        aux=aux.siguiente;
+    }
+    cadena+="}";
+    return cadena;
+}
 }
 

@@ -232,6 +232,8 @@ public class CatalogoP extends javax.swing.JFrame {
 //            Personaje p = (Personaje) ip.next();
 //            System.out.println(p.getImagen());
 //        }
+        System.out.println(InicioPVZ.CPlantas.Dot());
+        System.out.println();
         this.setVisible(false);
         CatalogoZ catalogoz=new CatalogoZ();
         catalogoz.setVisible(true);   
